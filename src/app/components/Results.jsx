@@ -1,4 +1,5 @@
 import React from 'react'
+import Card from './card'
 
 function Results({ results }) {
   // results คือ props ที่รับมาจาก page.js
@@ -6,9 +7,7 @@ function Results({ results }) {
     <div>
         {
           results.map((result) => (
-            <div key={result.id}>
-              <h2>{result.title}</h2>
-            </div>
+            <Card key={result.id} result={result}/>
           ))
         }
     </div>
