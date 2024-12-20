@@ -9,7 +9,7 @@ function DarkMode() {
     // currentTheme = theme ปัจจุบัน ___ ถ้า theme ปัจจุบัน === theme ของ window ถ้าไม่ ให้ 
     return (
         <div>
-            {currentTheme === 'dark' ? <MdDarkMode onClick={() => setTheme('light')} className='text-2xl cursor-pointer hover:text-amber-500' /> : <MdLightMode onClick={() => setTheme('dark')} className='text-2xl cursor-pointer hover:text-amber-500' />}
+            {currentTheme === 'light' ? <MdLightMode onClick={() => setTheme('dark')} className='text-2xl cursor-pointer hover:text-amber-500' /> : <MdDarkMode onClick={() => setTheme('light')} className='text-2xl cursor-pointer hover:text-amber-500' />}
         </div>
     )
 }
