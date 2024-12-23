@@ -2,10 +2,12 @@ import Image from 'next/image';
 import React from 'react'
 const API_KEY = process.env.API_KEY
 
-export default async function page({ params }) {
+export default async function page({ params}) {
     const { id } = await params
     const res = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`);
     const movie = await res.json()
+    const genre = movie.genres
+    console.log(movie)
     
     return (
         <div className='w-11/12 mx-auto mt-10'>
@@ -16,6 +18,13 @@ export default async function page({ params }) {
                     <p className='mb-3'>{movie.overview}</p>
                     <p className='mb-2'><span className='font-semibold mr-2'>Release Date : </span> {movie.release_date || movie.first_air_date}</p>
                     <p><span className='font-semibold mr-2'>Rating : </span>{movie.vote_average} / 10</p>
+                    {
+                        genre.map((genres) => (
+                            <div key={genres.id}>
+                                <p>{genres.name}</p>
+                            </div>
+                        ))
+                    }
                 </div>
 
             </div>
