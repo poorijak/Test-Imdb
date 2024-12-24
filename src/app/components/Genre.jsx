@@ -15,13 +15,15 @@ export default async function Genre() {
     
   return (
     <div>
+        <div className='flex flex-wrap gap-2 justify-center'>
         {
             genre.map((genres) => (
-                <div key={genres.id}>
-                    <p>{genres.name}</p>
-                </div>
+                <button key={genres.id} className='px-6 py-2  bg-gray-800 rounded-full hover:bg-amber-500 transition-colors duration-300'>
+                    {genres.name}
+                </button>
             ))
         }
+        </div>
     </div>
   )
 }

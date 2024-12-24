@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react'
 const API_KEY = process.env.API_KEY
 
@@ -30,6 +31,7 @@ export default async function page({ params }) {
                                 }
                             </span>
                         </p>
+                        <Link href={movie.homepage} target='blank'>Wacth now!</Link>
                     </div>
                 </div>
 
