@@ -2,6 +2,8 @@ import Image from 'next/image';
 import Results from './components/Results';
 import Genre from './components/Genre';
 import axios from 'axios';
+import MovieTrend from './components/MovieTrend';
+import Series from '@/app/components/Series'
 
 const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
 
@@ -18,12 +20,15 @@ export default async function Home({ searchParams }) {
     results = res.data.results; // ดึงรายการ Movies/TV Shows
   } catch (error) {
     console.error('Error fetching data:', error);
-  }
+    
+  } 
 
   return (
     <>
-      <Genre />
       <Results results={results} />
+      <Genre />
+      <MovieTrend/>
+      <Series/>
     </>
   );
 }

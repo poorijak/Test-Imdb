@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 export default function GenreFilter({ genres, selectedGenre, setSelectedGenre }) {
     return (
-        <div>
+        <div className=''>
             {
                 [{ id: 0, name: 'All' }, ...(genres || [])].map((genre) => (
                     <button

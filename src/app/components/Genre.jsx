@@ -67,7 +67,7 @@ export default function Genre() {
 
     return (
         <div>
-            <div className="flex flex-wrap gap-2 justify-center pb-5">
+            <div className="flex flex-wrap gap-2 justify-center pb-5 max-w-6xl mx-auto">
                 <GenreFilter genres={genres} selectedGenre={selectedGenre} setSelectedGenre={setSelectedGenre} />
                 <div>
                     <MovieItems movie={movie}/>
