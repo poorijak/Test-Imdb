@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Provider from "./Provider";
 import Navbar from "./components/Navbar";
 import Search from "./Search";
+import Genre from "./components/Genre";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
