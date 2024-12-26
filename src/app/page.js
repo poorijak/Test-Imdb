@@ -4,6 +4,7 @@ import Genre from './components/Genre';
 import axios from 'axios';
 import MovieTrend from './components/MovieTrend';
 import Series from '@/app/components/Series'
+import Slider from './components/Slider/Slider';
 
 const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
 
@@ -25,10 +26,10 @@ export default async function Home({ searchParams }) {
 
   return (
     <>
-      <Results results={results} />
-      <Genre />
       <MovieTrend/>
       <Series/>
+      <Results results={results} />
+      <Genre />
     </>
   );
 }
