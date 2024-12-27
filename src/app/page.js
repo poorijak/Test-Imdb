@@ -21,13 +21,13 @@ export default async function Home({ searchParams }) {
     results = res.data.results; // ดึงรายการ Movies/TV Shows
   } catch (error) {
     console.error('Error fetching data:', error);
-    
-  } 
+
+  }
 
   return (
     <>
-      <MovieTrend/>
-      <Series/>
+      <MovieTrend />
+      <Series />
       <Results results={results} />
       <Genre />
     </>

@@ -1,14 +1,22 @@
+'use client'; //
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 const API_KEY = process.env.NEXT_PUBLIC_API_KEY
+import axios from 'axios';
+import Casting from '@/app/components/Casting';
 
-export default async function page({ params }) {
+export default async function page({ params }) { // param คือ parameter ของ dynamic router => movie/[id] param คือ id
     const { id } = await params
     const res = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`);
     const movie = await res.json()
     const genre = movie.genres
     console.log(movie)
+    
+
+
+
+
 
     return (
         <div className='w-11/12 mx-auto mt-10'>
@@ -31,9 +39,10 @@ export default async function page({ params }) {
                                 }
                             </span>
                         </p>
-                        <Link href={movie.homepage} target='blank'>Wacth now!</Link>
                     </div>
+                        <Link href={movie.homepage} target='blank'>Wacth now!</Link>
                 </div>
+                <Casting id={id}/>
 
             </div>
         </div>

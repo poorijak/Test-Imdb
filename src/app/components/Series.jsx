@@ -3,35 +3,32 @@ import axios from 'axios'
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import Slider from './Slider/Slider'
+import { fetchTvTrending } from '../service/api'
 export default function MovieTrend() {
 
-    const API_KEY = process.env.NEXT_PUBLIC_API_KEY
-    const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
-    const [resultTren, setResultTren] = useState([])
+    const [series , setSeries] = useState([])
 
     useEffect(() => {
-        let fetchTrending = async () => {
+        const fetchSeries = async() => {
             try {
-                const res = await axios.get(`https://api.themoviedb.org/3/trending/tv/week?api_key=${API_KEY}&language=en-US
-`)
-                setResultTren(res.data.results)
+                const seriesTrending = await fetchTvTrending();
+                setSeries(seriesTrending);
             }
             catch (error) {
-                console.log('Error trending is : ', error)
+                console.log('error conmponents fetchSeries : ' , error);
+                
             }
         }
-        fetchTrending();
-    }, [])
 
-    console.log(resultTren);
-
+        fetchSeries();
+    } , [])
 
     return (
 
         <>
             <h2 className="text-6xl font-bold m-10 flex justify-center">Series Treding</h2>
             <div className='w-full'>
-                <Slider resultTren={resultTren} />
+                <Slider series={series} />
             </div>
         </>
     )
